@@ -3,7 +3,7 @@ import random
 #11
 """
 n = int(input("количество элементов в массиве: "))
-k = int(input("Кратное ч3исло итерации: "))
+k = int(input("Кратное число итерации: "))
 N = [random.randint(0, 30) for i in range(n)]
 A = np.array(N)
 print(A)
@@ -13,33 +13,20 @@ goal = A[aim]
 goal = np.delete(goal,0)
 print(goal)
 """
-#39
 """
+#39 ИСПРАВИТЬ
 n = int(input("количество элементов в массиве: "))
 N = [random.randint(0, 30) for i in range(n)]
 A = np.array(N)
 print(A)
-less = more =0
-Lflag = Mflag = True
-
-for i in range(1,n):
-    if A[i-1] > A[i]:
-        if Lflag:
-            less += 1
-            Lflag =False
-    else:
-        Lflag = True
-
-for j in range(1,n):
-    if A[j-1] < A[j]:
-        if Mflag:
-            more +=1
-            Mflag= False
-    else:
-        Mflag = True
-
-print("ответ: ",more+less )
+i = 2 ; aim = 1
+for i in range(n-1):
+    if A[i] < A[i-1] and A[i] < A[i+1] or A[i] > A[i-1] and A[i]> A[i+1]:
+        aim+=1
+print(aim)
 """
+
+
 #60
 """
 n = int(input("количество элементов: "))
@@ -63,8 +50,8 @@ print(ls)
 """
 #37
 """
-m = 3
-n = 10
+m = 5
+n = 5
 arr = np.random.randint(1,10,(m,n))
 print(arr)
 b = np.unique(arr[:,-1])
@@ -87,11 +74,13 @@ print(arr)
 """
 #96
 
+"""
 M = int(input("Размер матрицы: "))
-A = np.random.randint(-10,10,(M,M))
+A = np.random.randint(0,10,(M,M))
+print(A)
 for i in range(1,M):
     for j in range(0,i):
-        t = A[i,j]
-        A[j,i] = t
+        A[i,j], A[j,i] = A[j,i], A[i,j]
 
 print(A)
+"""
